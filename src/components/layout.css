@@ -1,4 +1,48 @@
 .calendar-container {
+  position: absolute;
   display: grid;
-  grid-template-columns: repeat(5, 1fr)
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 15px;
+  width: 90%;
+  left: 5%;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.calendar-day {
+  height: 125px;
+  width: 100%;
+  background-color: peachpuff;
+}
+
+.hidden-day {
+  opacity: 0;
+}
+
+.picture-container {
+  background-color: none;
+  position: absolute;
+  width: 100vw;
+}
+
+.image-container {
+  left: 5%;
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 15px;
+  width: 90%;
+  height: 90%;
+  margin: 0 auto;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: -1;
+}
+
+.gatsby-image-wrapper {
+  margin: 0 auto !important;
 }
