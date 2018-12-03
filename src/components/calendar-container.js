@@ -3,7 +3,7 @@ import CalendarDay from './calendar-day'
 
 const generateCalendarDays = (currentDay) => {
   let calendarDays = []
-  for (let i = 1; i < 26; i++) {
+  for (let i = 1; i < 25; i++) {
     if(i === currentDay){
       calendarDays.push(<CalendarDay
         activateDay={(e) => activateDay(e)}
@@ -19,6 +19,22 @@ const generateCalendarDays = (currentDay) => {
         class={i >= currentDay ? "calendar-day" : "calendar-day hidden-day"}/>)
     }
   }
+
+  if(currentDay === 25){
+    calendarDays.push(<CalendarDay
+      activateDay={(e) => activateDay(e)}
+      key={25}
+      id={25}
+      day={25}
+      class="calendar-day christmas-grid-cell"/>)
+  } else {
+    calendarDays.push(<CalendarDay
+      key={25}
+      id={25}
+      day={25}
+      class="calendar-day christmas-grid-cell"/>)
+  }
+  
   return calendarDays
 }
 
