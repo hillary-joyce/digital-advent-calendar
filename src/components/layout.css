@@ -1,10 +1,116 @@
 body {
-  background: #EB8A93;
+  background: #96ccbb;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
 }
 
 h1, h2 {
-  font-family: Helvetica;
-  font-weight: 500;
+  font-weight: 800;
+  color: white;
+  font-size: 2.5rem;
+}
+
+p, label, input {
+  font-weight: 300;
+}
+
+/*______________ FORM ________________________*/
+.form-div {
+  text-align: left;
+  width: 40%;
+  margin: 40px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 5px #4b8775;
+  border-radius: 5px;
+}
+
+.form-header {
+  font-size: 32px;
+}
+
+.form-div label {
+  display: block;
+  font-size: 20px;
+}
+
+input {
+  width: 80%;
+  height: 15px;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 10px;
+  margin: 10px auto;
+  border: 1px solid #96ccbb;
+  border-radius: 10px;
+  font-size: 18px;
+  color: black;
+  border-radius: 7px;
+}
+
+input::placeholder {
+  color: #4b8775;
+  font-style: italic;
+}
+
+.button {
+  background: #96ccbb;
+  color: white;
+  height: 40px;
+  width: 100%;
+  margin: 10px 0;
+  border: 1px solid #4b8775;
+  border-left: 1px solid #91e2ca;
+  border-top: 1px solid #91e2ca;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+#create-calendar {
+  grid-column: 1/span 2;
+}
+
+.button:hover {
+  background: #6bbaa2;
+  cursor: pointer;
+}
+
+.calendar-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/*_______________ Calendar _________________ */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  justify-items: center;
+  grid-gap: 10px;
+}
+.calendar-div {
+  width: 150px;
+  height: 150px;
+}
+.calendar-day-card {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: rgba(100,155,175,0.9);
+  border-radius: 100%;
+  margin-top: -30px;
+}
+
+.dog-img {
+  position: absolute;
+  margin-top: 15px;
+  margin-left: 13px;
+}
+/* .header-dog-div {
+  width: 140px;
+  height: 140px;
+  border-radius: 100%;
+  margin: 20px auto;
+  background:rgba(255, 255, 255, 0.4);
 }
 
 .advent-calendar-header {
@@ -14,8 +120,8 @@ h1, h2 {
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
   margin: 0;
   margin-bottom: 120px;
-}
-
+} */
+/*
 .calendar-container {
   position: absolute;
   display: grid;
@@ -35,38 +141,19 @@ h1, h2 {
   height: 125px;
   width: 80%;
   margin: 0 auto;
-  background-color: #78D3B8;
+  background-color: #96ccbb;
   color: white;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   font-size: 25px;
   text-shadow: 3px 3px 0px rgba(100,155,175,0.9);
-}
+} */
 
 .hidden-day {
   opacity: 0;
 }
 
-.picture-container {
-  background-color: none;
-  position: absolute;
-  width: 100vw;
-}
 
-.image-container {
-  position: absolute;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 15px;
-  grid-row-gap: 40px;
-  width: 90%;
-  left: 5%;
-  padding: 0;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  z-index: -1;
-}
 
 .gatsby-image-wrapper {
   margin: 0 auto !important;
