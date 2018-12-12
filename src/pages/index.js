@@ -2,9 +2,6 @@ import React from 'react'
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import NewCalendarForm from "../components/form"
-// import {Link} from 'gatsby'
-
-// import CalendarContainer from '../components/calendar-container'
 import CalendarDay from '../components/calendar-day'
 
 
@@ -12,6 +9,7 @@ class IndexPage extends React.Component {
   state = {
     totalDays: 0,
     title: "",
+    calId: 0,
     calendarView: false,
     wrongID: false,
     dogImgs: [<Img fixed={this.props.data.dogThree.childImageSharp.fixed} />,
@@ -91,7 +89,7 @@ class IndexPage extends React.Component {
       end_date: inputs[0].value,
       title: inputs[1].value
     }
-    fetch("http://localhost:3000/api/v1/calendars", {
+    fetch("https://pacific-atoll-30297.herokuapp.com/api/v1/calendars", {
       method: "POST",
       headers: {
           "Content-Type": "application/json"
@@ -101,7 +99,8 @@ class IndexPage extends React.Component {
       this.renderCalendar(d.start_date, d.end_date)
       this.setState({
         title: d.title,
-        calendarView: true
+        calendarView: true,
+        calId: d.id
       })
     })
   }
@@ -110,14 +109,14 @@ class IndexPage extends React.Component {
     e.preventDefault()
     let calendarId = e.target.querySelectorAll("input")[0].value
 
-    fetch(`http://localhost:3000/api/v1/calendars/${calendarId}`)
+    fetch(`https://pacific-atoll-30297.herokuapp.com/api/v1/calendars/${calendarId}`)
       .then(r => r.json())
       .then(d => {
         if(d.status === 404){
           this.setState({wrongID: true})
         } else {
           this.renderCalendar(d.start_date, d.end_date)
-          this.setState({title: d.title, calendarView: true})
+          this.setState({title: d.title, calendarView: true, calId: d.id})
         }
       })
   }
@@ -129,7 +128,8 @@ class IndexPage extends React.Component {
         <div className="header-dog-div">
           <Img fixed={this.props.data.dogThree.childImageSharp.fixed} />
         </div>
-        <h1>{this.state.title != "" ? `${this.state.totalDays} days until ${this.state.title}` : "Dog Countdown Calendar"}</h1>
+        <h1>{this.state.title !== "" ? `${this.state.totalDays} days until ${this.state.title}` : "Dog Countdown Calendar"}</h1>
+        <p>{this.state.title !== "" ? `your calendar id is ${this.state.calId}` : null }</p>
         {this.state.calendarView ?
           <div className="calendar-grid">
             {this.state.calendarDays}
@@ -162,8 +162,6 @@ fragment largeImage on File {
   }
 }
 `;
-
-const dogImgNames = ["dogOne", "dogTwo", "dogThree", "dogFour", "dogFive"]
 
 export const pageQuery = graphql`
   query {
