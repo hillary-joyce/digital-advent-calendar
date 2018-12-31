@@ -59,8 +59,8 @@ class IndexPage extends React.Component {
 
 
   renderCalendar = (start, end) => {
-    let calendarCount = Math.round(new Date(start) - new Date(end))/(1000 * 60 * 60 * 24)
-    let daysCompleted = Math.round(new Date(this.convertDateToString()) - new Date(end))/(1000 * 60 * 60 * 24)
+    let calendarCount = Math.abs(new Date(start) - new Date(end))/(1000 * 60 * 60 * 24)
+    let daysCompleted = Math.abs(new Date(this.convertDateToString()) - new Date(end))/(1000 * 60 * 60 * 24)
 
     this.setState({totalDays: calendarCount})
 
@@ -129,7 +129,7 @@ class IndexPage extends React.Component {
         <div className="header-dog-div">
           <Img fixed={this.props.data.dogThree.childImageSharp.fixed} />
         </div>
-        <h1>{this.state.title !== "" ? `${this.state.totalDays} days until ${this.state.title}` : "Dog Countdown Calendar"}</h1>
+        <h1>{this.state.title !== "" ? `${Math.round(this.state.totalDays)} days until ${this.state.title}` : "Dog Countdown Calendar"}</h1>
         <p>{this.state.title !== "" ? `your calendar id is ${this.state.calId}` : null }</p>
         {this.state.calendarView ?
           <div className="calendar-grid">
