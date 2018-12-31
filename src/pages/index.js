@@ -59,8 +59,8 @@ class IndexPage extends React.Component {
 
 
   renderCalendar = (start, end) => {
-    let calendarCount = Math.abs(new Date(start) - new Date(end))/(1000 * 60 * 60 * 24)
-    let daysCompleted = Math.abs(new Date(this.convertDateToString()) - new Date(end))/(1000 * 60 * 60 * 24)
+    let calendarCount = Math.round(new Date(start) - new Date(end))/(1000 * 60 * 60 * 24)
+    let daysCompleted = Math.round(new Date(this.convertDateToString()) - new Date(end))/(1000 * 60 * 60 * 24)
 
     this.setState({totalDays: calendarCount})
 
