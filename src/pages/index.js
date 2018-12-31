@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import NewCalendarForm from "../components/form"
 import CalendarDay from '../components/calendar-day'
+import '../components/layout.css'
 
 
 class IndexPage extends React.Component {

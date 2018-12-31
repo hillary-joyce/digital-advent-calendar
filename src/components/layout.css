@@ -97,71 +97,56 @@ input::placeholder {
   width: 100%;
   background: rgba(100,155,175,0.9);
   border-radius: 100%;
-  margin-top: -30px;
+  margin-top: -25px;
 }
 
+.calendar-day-card h1 {
+  padding-top: 50px;
+}
 .dog-img {
   position: absolute;
   margin-top: 15px;
   margin-left: 13px;
 }
-/* .header-dog-div {
-  width: 140px;
-  height: 140px;
-  border-radius: 100%;
-  margin: 20px auto;
-  background:rgba(255, 255, 255, 0.4);
-}
 
-.advent-calendar-header {
-  text-align: center;
-  color: white;
-  font-size: 100px;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
-  margin: 0;
-  margin-bottom: 120px;
-} */
-/*
-.calendar-container {
-  position: absolute;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 15px;
-  grid-row-gap: 40px;
-  width: 90%;
-  left: 5%;
-  padding: 0;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin-bottom: 100px;
-}
-
-.calendar-day {
-  height: 125px;
-  width: 80%;
-  margin: 0 auto;
-  background-color: #96ccbb;
-  color: white;
-  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
-  border-radius: 5px;
-  font-size: 25px;
-  text-shadow: 3px 3px 0px rgba(100,155,175,0.9);
-} */
 
 .hidden-day {
   opacity: 0;
 }
 
 
-
 .gatsby-image-wrapper {
   margin: 0 auto !important;
 }
 
-.christmas-grid-cell {
-  grid-column-start: 1;
-  grid-column-end: 5;
-  height: 400px;
-  font-size: 85px;
+
+
+
+/******* MEDIA QUERIES *****/
+
+@media only screen and (max-width: 600px) {
+  .form-div {
+    width: 80%;
+  }
+  .form-header {
+    font-size: 26px;
+    text-align: center;
+    margin-top: 5px;
+  }
+
+  .form-div label {
+    font-size: 18px;
+  }
+
+  #create-calendar {
+    grid-column: 1/span 1;
+  }
+
+  .calendar-form {
+    grid-template-columns: 1fr;
+  }
+
+  .calendar-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
